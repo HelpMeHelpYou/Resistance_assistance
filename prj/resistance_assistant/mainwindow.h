@@ -34,6 +34,10 @@ private slots:
 
     void on_pushButton_start_game_clicked();
 
+    void on_actionSave_triggered();
+
+    void on_actionLoad_triggered();
+
 private:
 
     gamers_model * md ;

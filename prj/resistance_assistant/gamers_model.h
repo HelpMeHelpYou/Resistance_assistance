@@ -16,21 +16,20 @@ class gamers_model : public QAbstractListModel
 public:
     gamers_model();
 
-
-   //load
-    //save
-
     virtual int rowCount ( const QModelIndex &) const;
-    virtual  QVariant data ( const QModelIndex &, int  ) const ;
 
+    virtual  QVariant data ( const QModelIndex &, int  ) const ;
     virtual bool setData(const QModelIndex &, const QVariant& , int  role );
 
     virtual Qt::ItemFlags flags(const QModelIndex & /*index*/) const;
 
-virtual bool insertRows ( int , int , const QModelIndex & );
+    virtual bool insertRows ( int , int , const QModelIndex & );
+    virtual bool removeRows ( int , int , const QModelIndex & );
 
-virtual bool removeRows ( int , int , const QModelIndex & );
+    const QStringList get_gamers();
+    void set_gamers (QStringList  gamers);
 
+private:
     QStringList gamers;
 };
 

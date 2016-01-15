@@ -7,6 +7,8 @@ gamers_model::gamers_model()
 {
 }
 
+
+
 int gamers_model::rowCount (const QModelIndex &) const
 {
 #if   MVC_DEBUG
@@ -88,3 +90,17 @@ bool gamers_model::removeRows(int row, int count, const QModelIndex &parent)
 
 }
 
+
+const QStringList gamers_model::get_gamers()
+{
+    return gamers ;
+
+}
+
+void gamers_model::set_gamers(QStringList gamers_l)
+{
+    beginInsertRows(this->index(0,0),0,gamers_l.size());
+    this->gamers = gamers_l;
+    endInsertRows();
+    emit this->dataChanged(this->index(0,0),this->index(0,this->gamers.size()));
+}
